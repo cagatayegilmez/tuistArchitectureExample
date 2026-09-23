@@ -8,7 +8,7 @@
 import ProjectDescription
 
 let workspace = Workspace(
-    name: "Tuist Architecture",
+    name: "TuistArchitecture",
     projects: [
         "Projects/App",
         "Projects/Components",
