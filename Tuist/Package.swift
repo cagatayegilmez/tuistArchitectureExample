@@ -1,0 +1,32 @@
+//
+//  Package.swift
+//  Tuist Architecture
+//
+//  Created by Çağatay Eğilmez on 23.09.2026.
+//
+// swift-tools-version: 6.0
+
+@preconcurrency import PackageDescription
+
+#if TUIST
+import ProjectDescription
+
+let packageSettings = PackageSettings(
+    productTypes: [
+        "Lottie": .framework
+    ],
+    baseSettings: .settings(
+        base: ["IPHONEOS_DEPLOYMENT_TARGET": "17.0"]
+    )
+)
+#endif
+
+let package = Package(
+    name: "Dependencies",
+    dependencies: [
+        .package(
+            url: "https://github.com/airbnb/lottie-ios.git",
+            from: "4.6.0"
+        )
+    ]
+)
