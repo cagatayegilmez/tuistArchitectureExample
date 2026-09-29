@@ -5,8 +5,8 @@
 //  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
-import Foundation
 import DesignSystem
+import Foundation
 import SwiftUI
 import UIKit
 

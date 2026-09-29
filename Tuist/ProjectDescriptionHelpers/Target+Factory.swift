@@ -13,7 +13,8 @@ public extension Target {
         name: String,
         bundleIdSuffix: String,
         hasResources: Bool,
-        dependencies: [TargetDependency]
+        dependencies: [TargetDependency],
+        settings: Settings = .moduleSettings
     ) -> Target {
         .target(
             name: name,
@@ -26,14 +27,15 @@ public extension Target {
             resources: hasResources ? ["Resources/**"] : nil,
             scripts: [.swiftLint],
             dependencies: dependencies,
-            settings: .moduleSettings
+            settings: settings
         )
     }
 
     static func unitTests(
         for moduleName: String,
         bundleIdSuffix: String,
-        dependencies: [TargetDependency] = []
+        dependencies: [TargetDependency] = [],
+        settings: Settings = .moduleSettings
     ) -> Target {
         .target(
             name: "\(moduleName)Tests",
@@ -44,7 +46,7 @@ public extension Target {
             infoPlist: .default,
             sources: ["Tests/**"],
             dependencies: [.target(name: moduleName)] + dependencies,
-            settings: .moduleSettings
+            settings: settings
         )
     }
 
@@ -92,24 +94,37 @@ public extension Target {
 public extension Settings {
 
     static var moduleSettings: Settings {
-        .settings(
-            base: [
-                "SWIFT_VERSION": .string(Constants.swiftVersion),
-                "ENABLE_USER_SCRIPT_SANDBOXING": "NO"
-            ]
-        )
+        .settings(base: baseSettings)
+    }
+
+    static var featureSettings: Settings {
+        .settings(base: baseSettings.merging(mainActorSettings) { _, new in new })
     }
 
     static var appSettings: Settings {
         .settings(
-            base: [
-                "SWIFT_VERSION": .string(Constants.swiftVersion),
-                "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
-                "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
-                "GENERATE_INFOPLIST_FILE": "YES",
-                "ENABLE_USER_SCRIPT_SANDBOXING": "NO"
-            ]
+            base: baseSettings
+                .merging(mainActorSettings) { _, new in new }
+                .merging([
+                    "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
+                    "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
+                    "GENERATE_INFOPLIST_FILE": "YES"
+                ]) { _, new in new }
         )
+    }
+
+    private static var baseSettings: SettingsDictionary {
+        [
+            "SWIFT_VERSION": .string(Constants.swiftVersion),
+            "ENABLE_USER_SCRIPT_SANDBOXING": "NO"
+        ]
+    }
+
+    private static var mainActorSettings: SettingsDictionary {
+        [
+            "SWIFT_DEFAULT_ACTOR_ISOLATION": "MainActor",
+            "SWIFT_APPROACHABLE_CONCURRENCY": "YES"
+        ]
     }
 }
 

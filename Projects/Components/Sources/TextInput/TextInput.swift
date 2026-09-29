@@ -42,8 +42,9 @@ public struct ExampleTextInput: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: Constant.errorSpacing) {
             field
+                .foregroundStyle(ExampleColor.textPrimary)
                 .keyboardType(configuration.keyboardType)
-                .textInputAutocapitalization(.never)
+                .textInputAutocapitalization(configuration.autocapitalization)
                 .autocorrectionDisabled(true)
                 .textContentType(configuration.contentType)
                 .padding(.horizontal, Constant.horizontalPadding)
@@ -83,10 +84,19 @@ private extension ExampleTextInput {
 
     @ViewBuilder var field: some View {
         if configuration.isSecure {
-            SecureField(configuration.placeholder, text: $text)
+            SecureField(text: $text, prompt: prompt) {
+                Text(configuration.placeholder)
+            }
         } else {
-            TextField(configuration.placeholder, text: $text)
+            TextField(text: $text, prompt: prompt) {
+                Text(configuration.placeholder)
+            }
         }
+    }
+
+    var prompt: Text {
+        Text(configuration.placeholder)
+            .foregroundStyle(ExampleColor.textSecondary)
     }
 }
 

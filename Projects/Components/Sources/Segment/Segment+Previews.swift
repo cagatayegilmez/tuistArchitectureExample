@@ -50,4 +50,3 @@ private enum LoanFilterSegments {
     }
     return SegmentPreview()
 }
-

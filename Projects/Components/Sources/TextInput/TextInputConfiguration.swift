@@ -10,6 +10,8 @@ import SwiftUI
 /// Type of text input style
 public enum ExampleInputType {
 
+    /// Plain text input field
+    case text
     /// Email input field
     case email
     /// Password input field
@@ -30,6 +32,14 @@ public struct ExampleTextInputConfiguration {
                  placeholder: String) {
         self.type = type
         self.placeholder = placeholder
+    }
+
+    /// Creates plain text input field
+    ///
+    /// - Parameter placeholder: Input field's placeholder string
+    /// - Returns: Text configurated ExampleTextInputConfiguration object
+    public static func text(placeholder: String) -> Self {
+        .init(type: .text, placeholder: placeholder)
     }
 
     /// Creates email input field
@@ -75,10 +85,10 @@ extension ExampleTextInputConfiguration {
     /// Defines input field's keyboard type
     var keyboardType: UIKeyboardType {
         switch type {
+        case .text, .password:
+            return .default
         case .email:
             return .emailAddress
-        case .password:
-            return .default
         case .amount:
             return .decimalPad
         }
@@ -91,8 +101,18 @@ extension ExampleTextInputConfiguration {
             return .emailAddress
         case .password:
             return .password
-        case .amount:
+        case .text, .amount:
             return nil
+        }
+    }
+
+    /// Defines input field's autocapitalization behaviour
+    var autocapitalization: TextInputAutocapitalization {
+        switch type {
+        case .text:
+            return .words
+        case .email, .password, .amount:
+            return .never
         }
     }
 

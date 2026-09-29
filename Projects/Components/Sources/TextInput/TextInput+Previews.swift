@@ -54,6 +54,10 @@ private struct ExampleTextInputPreviewHost: View {
     }
 }
 
+#Preview("Text") {
+    ExampleTextInputPreviewHost(configuration: .text(placeholder: "Name"))
+}
+
 #Preview("Email") {
     ExampleTextInputPreviewHost(configuration: .email())
 }

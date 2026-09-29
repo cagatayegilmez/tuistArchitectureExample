@@ -39,6 +39,40 @@ public extension Project {
         return Project(name: name, targets: targets)
     }
 
+    /// Creates a feature module project with MainActor default isolation and a unit test target
+    ///
+    /// - Parameters:
+    ///   - name: Name of the feature module
+    ///   - bundleIdSuffix: Bundle identifier suffix of the module
+    ///   - dependencies: Dependencies of the feature target
+    ///   - testDependencies: Additional dependencies of the unit test target
+    /// - Returns: Project containing the feature target and its unit test target
+    static func feature(
+        name: String,
+        bundleIdSuffix: String,
+        dependencies: [TargetDependency] = [],
+        testDependencies: [TargetDependency] = []
+    ) -> Project {
+        Project(
+            name: name,
+            targets: [
+                .framework(
+                    name: name,
+                    bundleIdSuffix: bundleIdSuffix,
+                    hasResources: false,
+                    dependencies: dependencies,
+                    settings: .featureSettings
+                ),
+                .unitTests(
+                    for: name,
+                    bundleIdSuffix: bundleIdSuffix,
+                    dependencies: testDependencies,
+                    settings: .featureSettings
+                )
+            ]
+        )
+    }
+
     static func app(
         name: String,
         bundleIdSuffix: String,

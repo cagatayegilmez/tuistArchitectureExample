@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Tuist Architecture
 //
-//  Created by Çağatay Eğilmez on 23.09.2026.
+//  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
 import UIKit
@@ -21,5 +21,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         let window = UIWindow(windowScene: windowScene)
+        window.overrideUserInterfaceStyle = .light
+        let coordinator = AppCoordinator(window: window,
+                                         sessionStore: UserDefaultsSessionStore())
+        self.window = window
+        appCoordinator = coordinator
+        coordinator.start()
     }
 }
