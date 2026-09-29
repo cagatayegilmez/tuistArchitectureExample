@@ -5,17 +5,16 @@
 //  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
-import DesignSystem
 import UIKit
 
-final class ExploreViewController<ViewModel: ExploreViewModelProtocol>: UIViewController {
+public final class ExploreViewController: UIViewController {
 
-    private let viewModel: ViewModel
+    private let viewModel: ExploreViewModelProtocol
 
     /// Creates the explore view controller
     ///
     /// - Parameter viewModel: View model driving the explore screen
-    init(viewModel: ViewModel) {
+    init(viewModel: ExploreViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,10 +27,9 @@ final class ExploreViewController<ViewModel: ExploreViewModelProtocol>: UIViewCo
         fatalError("init(coder:) has not been implemented")
     }
 
-    /// Embeds the SwiftUI content once the view is loaded
-    override func viewDidLoad() {
+    /// Sets the navigation title once the view is loaded
+    override public func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
-        addSwiftUIView(ExploreView(viewModel: viewModel), hasNavBar: true)
     }
 }

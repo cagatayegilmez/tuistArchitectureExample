@@ -5,7 +5,6 @@
 //  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
-import DesignSystem
 import UIKit
 
 private enum Constant {
@@ -13,14 +12,14 @@ private enum Constant {
     static let title = "Login"
 }
 
-final class LoginViewController<ViewModel: LoginViewModelProtocol>: UIViewController {
+final class LoginViewController: UIViewController {
 
-    private let viewModel: ViewModel
+    private let viewModel: LoginViewModelProtocol
 
     /// Creates the login view controller
     ///
     /// - Parameter viewModel: View model driving the login screen
-    init(viewModel: ViewModel) {
+    init(viewModel: LoginViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -33,10 +32,9 @@ final class LoginViewController<ViewModel: LoginViewModelProtocol>: UIViewContro
         fatalError("init(coder:) has not been implemented")
     }
 
-    /// Embeds the SwiftUI content once the view is loaded
+    /// Sets the navigation title once the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constant.title
-        addSwiftUIView(LoginView(viewModel: viewModel), hasNavBar: true)
     }
 }

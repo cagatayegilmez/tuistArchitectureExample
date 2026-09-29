@@ -5,17 +5,16 @@
 //  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
-import DesignSystem
 import UIKit
 
-final class ExploreDetailViewController<ViewModel: ExploreDetailViewModelProtocol>: UIViewController {
+final class ExploreDetailViewController: UIViewController {
 
-    private let viewModel: ViewModel
+    private let viewModel: ExploreDetailViewModelProtocol
 
     /// Creates the exploreDetail view controller
     ///
     /// - Parameter viewModel: View model driving the exploreDetail screen
-    init(viewModel: ViewModel) {
+    init(viewModel: ExploreDetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,10 +27,9 @@ final class ExploreDetailViewController<ViewModel: ExploreDetailViewModelProtoco
         fatalError("init(coder:) has not been implemented")
     }
 
-    /// Embeds the SwiftUI content once the view is loaded
+    /// Sets the navigation title once the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
-        addSwiftUIView(ExploreDetailView(viewModel: viewModel), hasNavBar: true)
     }
 }

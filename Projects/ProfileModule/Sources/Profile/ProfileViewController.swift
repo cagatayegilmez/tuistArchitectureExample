@@ -5,17 +5,16 @@
 //  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
-import DesignSystem
 import UIKit
 
-final class ProfileViewController<ViewModel: ProfileViewModelProtocol>: UIViewController {
+public final class ProfileViewController: UIViewController {
 
-    private let viewModel: ViewModel
+    private let viewModel: ProfileViewModelProtocol
 
     /// Creates the profile view controller
     ///
     /// - Parameter viewModel: View model driving the profile screen
-    init(viewModel: ViewModel) {
+    init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,10 +27,9 @@ final class ProfileViewController<ViewModel: ProfileViewModelProtocol>: UIViewCo
         fatalError("init(coder:) has not been implemented")
     }
 
-    /// Embeds the SwiftUI content once the view is loaded
-    override func viewDidLoad() {
+    /// Sets the navigation title once the view is loaded
+    override public func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
-        addSwiftUIView(ProfileView(viewModel: viewModel), hasNavBar: true)
     }
 }

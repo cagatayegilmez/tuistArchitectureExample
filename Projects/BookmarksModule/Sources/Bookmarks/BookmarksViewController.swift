@@ -5,17 +5,16 @@
 //  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
-import DesignSystem
 import UIKit
 
-final class BookmarksViewController<ViewModel: BookmarksViewModelProtocol>: UIViewController {
+public final class BookmarksViewController: UIViewController {
 
-    private let viewModel: ViewModel
+    private let viewModel: BookmarksViewModelProtocol
 
     /// Creates the bookmarks view controller
     ///
     /// - Parameter viewModel: View model driving the bookmarks screen
-    init(viewModel: ViewModel) {
+    init(viewModel: BookmarksViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,10 +27,9 @@ final class BookmarksViewController<ViewModel: BookmarksViewModelProtocol>: UIVi
         fatalError("init(coder:) has not been implemented")
     }
 
-    /// Embeds the SwiftUI content once the view is loaded
-    override func viewDidLoad() {
+    /// Sets the navigation title once the view is loaded
+    override public func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
-        addSwiftUIView(BookmarksView(viewModel: viewModel), hasNavBar: true)
     }
 }

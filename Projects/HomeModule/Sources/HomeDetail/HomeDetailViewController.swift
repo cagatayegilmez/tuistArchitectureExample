@@ -5,17 +5,16 @@
 //  Created by Çağatay Eğilmez on 29.09.2026.
 //
 
-import DesignSystem
 import UIKit
 
-final class HomeDetailViewController<ViewModel: HomeDetailViewModelProtocol>: UIViewController {
+final class HomeDetailViewController: UIViewController {
 
-    private let viewModel: ViewModel
+    private let viewModel: HomeDetailViewModelProtocol
 
     /// Creates the homeDetail view controller
     ///
     /// - Parameter viewModel: View model driving the homeDetail screen
-    init(viewModel: ViewModel) {
+    init(viewModel: HomeDetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,10 +27,9 @@ final class HomeDetailViewController<ViewModel: HomeDetailViewModelProtocol>: UI
         fatalError("init(coder:) has not been implemented")
     }
 
-    /// Embeds the SwiftUI content once the view is loaded
+    /// Sets the navigation title once the view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
-        addSwiftUIView(HomeDetailView(viewModel: viewModel), hasNavBar: true)
     }
 }
