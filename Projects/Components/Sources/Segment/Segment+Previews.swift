@@ -9,33 +9,31 @@ import DesignSystem
 import SwiftUI
 
 @MainActor
-private enum LoanFilterSegments {
+private enum DemoSegments {
 
     static let all = ExampleSegmentItem(id: UUID(), title: "All")
-    static let active = ExampleSegmentItem(id: UUID(), title: "Active")
-    static let overdue = ExampleSegmentItem(id: UUID(), title: "Overdue")
-    static let defaulted = ExampleSegmentItem(id: UUID(), title: "Default")
-    static let paid = ExampleSegmentItem(id: UUID(), title: "Paid")
+    static let recent = ExampleSegmentItem(id: UUID(), title: "Recent")
+    static let popular = ExampleSegmentItem(id: UUID(), title: "Popular")
+    static let saved = ExampleSegmentItem(id: UUID(), title: "Saved")
     static let allItems: [ExampleSegmentItem] = [all,
-                                                 active,
-                                                 overdue,
-                                                 defaulted,
-                                                 paid]
+                                                 recent,
+                                                 popular,
+                                                 saved]
 }
 
 #Preview("Segment Demo") {
     struct SegmentPreview: View {
-        @State private var selection = LoanFilterSegments.all.id
+        @State private var selection = DemoSegments.all.id
 
         private var selectedTitle: String {
-            LoanFilterSegments.allItems.first { $0.id == selection }?.title ?? ""
+            DemoSegments.allItems.first { $0.id == selection }?.title ?? ""
         }
 
         var body: some View {
             VStack(spacing: 16) {
                 ExampleSegment(
                     selection: $selection,
-                    configuration: .segments(LoanFilterSegments.allItems)
+                    configuration: .segments(DemoSegments.allItems)
                 )
 
                 Text("Selected: \(selectedTitle)")

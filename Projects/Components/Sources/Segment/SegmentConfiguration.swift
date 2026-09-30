@@ -15,7 +15,7 @@ public struct ExampleSegmentItem {
     /// Shown title of segment item
     public let title: String
 
-    /// Initilization of model
+    /// Creates the segment item
     ///
     /// - Parameters:
     ///   - id: Unique id for listing items
@@ -40,7 +40,7 @@ public struct ExampleSegmentConfiguration {
     /// Creates segment view configuration
     ///
     /// - Parameter segments: List of segment objects
-    /// - Returns: A KLSegmentConfiguration object which contains segment items
+    /// - Returns: An ExampleSegmentConfiguration object which contains segment items
     public static func segments(_ segments: [ExampleSegmentItem]) -> Self {
         assert(!segments.isEmpty,
                "Segment can not be created without segments.")

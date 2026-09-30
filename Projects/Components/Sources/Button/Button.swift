@@ -31,11 +31,11 @@ public struct ExampleButton: View {
 
     public var body: some View {
         Button(configuration.title, action: action)
-            .buttonStyle(KLButtonStyle(style: configuration.style))
+            .buttonStyle(ExampleButtonStyle(style: configuration.style))
     }
 }
 
-private struct KLButtonStyle: ButtonStyle {
+private struct ExampleButtonStyle: ButtonStyle {
 
     let style: ExampleButtonType
     @Environment(\.isEnabled)

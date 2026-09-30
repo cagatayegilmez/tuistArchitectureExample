@@ -37,7 +37,7 @@ public struct ExampleTextInputConfiguration {
     /// Creates plain text input field
     ///
     /// - Parameter placeholder: Input field's placeholder string
-    /// - Returns: Text configurated ExampleTextInputConfiguration object
+    /// - Returns: Text configured ExampleTextInputConfiguration object
     public static func text(placeholder: String) -> Self {
         .init(type: .text, placeholder: placeholder)
     }
@@ -45,7 +45,7 @@ public struct ExampleTextInputConfiguration {
     /// Creates email input field
     ///
     /// - Parameter placeholder: Input field's placeholder string
-    /// - Returns: Email configurated KLTextInputConfiguration object
+    /// - Returns: Email configured ExampleTextInputConfiguration object
     public static func email(placeholder: String = "E-mail address") -> Self {
         .init(type: .email, placeholder: placeholder)
     }
@@ -53,7 +53,7 @@ public struct ExampleTextInputConfiguration {
     /// Creates password input field
     ///
     /// - Parameter placeholder: Input field's placeholder string
-    /// - Returns: Password configurated KLTextInputConfiguration object
+    /// - Returns: Password configured ExampleTextInputConfiguration object
     public static func password(placeholder: String = "Password") -> Self {
         .init(type: .password, placeholder: placeholder)
     }
@@ -63,7 +63,7 @@ public struct ExampleTextInputConfiguration {
     /// - Parameters:
     ///  - placeholder: Input field's placeholder string
     ///  - maxFractionDigits: Digit counts for user can type maximum characters after comma
-    /// - Returns: Email configurated KLTextInputConfiguration object
+    /// - Returns: Amount configured ExampleTextInputConfiguration object
     public static func amount(placeholder: String = "0.00",
                               maxFractionDigits: Int = 2) -> Self {
         .init(type: .amount(maxFractionDigits: maxFractionDigits),

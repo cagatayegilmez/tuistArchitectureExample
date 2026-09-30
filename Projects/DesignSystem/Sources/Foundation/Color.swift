@@ -38,7 +38,7 @@ public enum ExampleColor {
     public static let overlayLight = Palette.whiteScrim
     /// Border color
     public static let border = Palette.lightGray
-    /// Primary tet color
+    /// Primary text color
     public static let textPrimary = Palette.ink
     /// Secondary text color
     public static let textSecondary = Palette.gray
@@ -48,7 +48,7 @@ public enum ExampleColor {
     public static let warning = Palette.orange
     /// Danger red
     public static let danger = Palette.red
-    /// Neautral gray
+    /// Neutral gray
     public static let neutral = Palette.gray
     /// Passive gray
     public static let statusFallback = Palette.darkGray

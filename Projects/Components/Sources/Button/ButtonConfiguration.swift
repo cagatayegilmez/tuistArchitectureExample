@@ -36,7 +36,7 @@ public struct ExampleButtonConfiguration {
     /// Creates primary typed button
     ///
     /// - Parameter title: Title of button
-    /// - Returns: Primary configurated KLButtonConfiguration object
+    /// - Returns: Primary configured ExampleButtonConfiguration object
     public static func primary(title: String) -> Self {
         .init(style: .primary, title: title)
     }
@@ -44,7 +44,7 @@ public struct ExampleButtonConfiguration {
     /// Creates plain typed button
     ///
     /// - Parameter title: Title of button
-    /// - Returns: Plain configurated KLButtonConfiguration object
+    /// - Returns: Plain configured ExampleButtonConfiguration object
     public static func plain(title: String) -> Self {
         .init(style: .plain, title: title)
     }
@@ -52,7 +52,7 @@ public struct ExampleButtonConfiguration {
 
 public extension ExampleButtonConfiguration {
 
-    /// Creates UIBarButtonItem from KLButton insets
+    /// Creates a UIBarButtonItem from the button configuration
     ///
     /// - Parameter action: Button click action provider
     @MainActor
