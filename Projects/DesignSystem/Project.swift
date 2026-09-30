@@ -1,6 +1,6 @@
 //
 //  DesignSystemProject.swift
-//  KliqLoanApp
+//  TuistArchitectureExample
 //
 //  Created Çağatay Eğilmez on 13.07.2026
 //

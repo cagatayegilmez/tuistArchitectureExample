@@ -10,7 +10,7 @@ import ProjectDescription
 public enum Constants {
 
     public static let workspaceName = "Tuist Architecture"
-    public static let bundleIdPrefix = "com.cagatayegilmez.tustArchitecture"
+    public static let bundleIdPrefix = "com.cagatayegilmez.tuistArchitecture"
     public static let destinations: Destinations = [.iPhone, .iPad]
     public static let deploymentTargets: DeploymentTargets = .iOS("17.0")
     public static let swiftVersion = "6.4"

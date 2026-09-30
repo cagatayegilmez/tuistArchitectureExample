@@ -16,11 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kliq_logo" translatesAutoresizingMaskIntoConstraints="NO" id="xGy-cu-BV5">
-                                <rect key="frame" x="100" y="414" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xGy-cu-BV5">
+                                <rect key="frame" x="192" y="450" width="56" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Br1-vn-fJT"/>
-                                    <constraint firstAttribute="height" constant="128" id="Qws-eP-mPF"/>
+                                    <constraint firstAttribute="width" constant="56" id="Br1-vn-fJT"/>
+                                    <constraint firstAttribute="height" constant="56" id="Qws-eP-mPF"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -38,7 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="kliq_logo" width="194" height="67.333335876464844"/>
+        <image name="LaunchLogo" width="56" height="56"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

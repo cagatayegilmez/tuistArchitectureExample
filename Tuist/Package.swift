@@ -1,9 +1,3 @@
-//
-//  Package.swift
-//  Tuist Architecture
-//
-//  Created by Çağatay Eğilmez on 23.09.2026.
-//
 // swift-tools-version: 6.0
 
 @preconcurrency import PackageDescription

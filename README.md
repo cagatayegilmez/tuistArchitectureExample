@@ -1,5 +1,16 @@
 # tuistArchitectureExample
 
+## Requirements
+
+- Xcode 27
+- Tuist 4.208.0, pinned in `mise.toml`
+
+```bash
+brew install mise
+mise install
+tuist generate
+```
+
 
 ## License
 
